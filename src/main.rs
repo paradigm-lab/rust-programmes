@@ -1,4 +1,7 @@
-use std::fmt::format;
+struct Employee {
+    name: String,
+    id: i64,
+}
 
 // Created a new function
 // Passing a 64 bit signed integer type in the function (signed and unsigned)
@@ -14,4 +17,17 @@ fn main() {
     let name: &str = "Rust";
     let result = greet(name);
     println!("My greeting: {}", result);
+
+    let employee = Employee {
+        name: "Stream".to_string(),
+        id: 101,
+    };
+
+    // let alt = String::from("hello");
+
+    // Rust can't print the whole structure
+    // println!("Struct {}", employee);
+
+    println!("Name: {}", employee.name);
+    println!("Id: {}", employee.id);
 }
