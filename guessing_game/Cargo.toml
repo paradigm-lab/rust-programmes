@@ -1,7 +1,6 @@
 [package]
-name = "rust_programs"
+name = "guessing_game"
 version = "0.1.0"
-authors = ["Collins <collinsboniface1000@gmail.com>"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
