@@ -1,9 +1,14 @@
 // Input output(IO) Library
 // The IO library cames with the standard library (which is known as std)
+use rand::Rng;
 use std::io;
 
 fn main() {
     println!("Guess the number!");
+
+    let secret_number = rand::thread_rng().gen_range(1..101);
+
+    println!("The Secret number is: {}", secret_number);
 
     println!("Please input the guess.");
 
@@ -23,8 +28,7 @@ fn main() {
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-    
     // String we saved the user's input in. The set of curly brackets {} is a placeholder
-    
+
     println!("You guessed: {}", guess);
 }
