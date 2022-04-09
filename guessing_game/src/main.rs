@@ -1,6 +1,7 @@
 // Input output(IO) Library
 // The IO library cames with the standard library (which is known as std)
 use rand::Rng;
+use std::cmp::Ordering;
 use std::io;
 
 fn main() {
@@ -28,7 +29,19 @@ fn main() {
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-    // String we saved the user's input in. The set of curly brackets {} is a placeholder
+    // Rust allows us to shadow the previous value of guess (Shadowing)
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
 
+    // String we saved the user's input in. The set of curly brackets {} is a placeholder
     println!("You guessed: {}", guess);
+
+    // Here it's comparing the guess to the secret_number.
+    // Then it returns a variant of the ordering enum we brought into scope
+    // We use a match expression to decide what to do next based on which variant of Ordering,
+    // was returned from the call to cmp with the value in guess and secret_number
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Too Small!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal => println!("You win!"),
+    }
 }
