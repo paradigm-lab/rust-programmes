@@ -31,7 +31,14 @@ fn main() {
             .expect("Failed to read line");
 
         // Rust allows us to shadow the previous value of guess (Shadowing)
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        // Handling the Invalid Input
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("Please input a number.");
+                continue;
+            }
+        };
 
         // String we saved the user's input in. The set of curly brackets {} is a placeholder
         println!("You guessed: {}", guess);
