@@ -13,7 +13,21 @@ fn main() {
     let s = s * 2;
     println!("The Value of S is {}", s);
 
+    // Making spaces and taking the size of the spaces
     let spaces = "  ";
     let spaces = spaces.len();
     println!("No of spaces: {}", spaces);
+
+    // Rust Data types
+    // we have got scalar types and Compound types
+    // Scalar types are: Integer, Floating Point, Booleans and characters
+
+    // Integer Types: Numbers without a fractional component
+    // We have got Signed and Unsigned Integers
+
+    // Floating Point: Fractional Numbers
+    let p = 2.0; // F64
+    let y: f32 = 3.0; // F32
+    let z = p + y;
+    println!("The value of z is: {}", z);
 }
