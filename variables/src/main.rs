@@ -55,8 +55,17 @@ fn main() {
         sum, difference, product, quotient, remainder
     );
 
+    // Boolean Type (bool type)
+    // 1 byte size
     let t = true;
 
     let f: bool = false; // With explicity type annotation
     println!("True: {}, False: {}", t, f);
+
+    // Character type (char type)
+    // 4 byte size
+    let c: char = 'z';
+    let z: char = 'ℤ';
+    let heart_eyed_cat: char = '😻';
+    println!("Value c: {}, z {}, heart_eyed_cat {}", c, z, heart_eyed_cat);
 }
