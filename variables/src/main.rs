@@ -28,6 +28,30 @@ fn main() {
     // Floating Point: Fractional Numbers
     let p = 2.0; // F64
     let y: f32 = 3.0; // F32
+
+    // Type inferences
     let z = p + y;
     println!("The value of z is: {}", z);
+
+    // Numerical Operations
+    // Addition
+    let sum = 5 + 10;
+
+    // Subtraction
+    let difference = 95.5 - 4.3;
+
+    // Multiplication
+    let product = 4 * 30;
+
+    // Division
+    let quotient = 56.7 / 32.2;
+
+    // Remainder
+    let remainder = 43 % 5;
+
+    println!(
+        "Sum: {}, Subtraction: {}, Product: {}, Quotient: {}, 
+    Reminder: {}",
+        sum, difference, product, quotient, remainder
+    );
 }
