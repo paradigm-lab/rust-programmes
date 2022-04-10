@@ -30,7 +30,7 @@ fn main() {
     let y: f32 = 3.0; // F32
 
     // Type inferences
-    let z = p + y;
+    let z: f32 = p + y; // With explicit type Annotation
     println!("The value of z is: {}", z);
 
     // Numerical Operations
@@ -54,4 +54,9 @@ fn main() {
     Reminder: {}",
         sum, difference, product, quotient, remainder
     );
+
+    let t = true;
+
+    let f: bool = false; // With explicity type annotation
+    println!("True: {}, False: {}", t, f);
 }
