@@ -41,6 +41,11 @@ fn countdown_from(x: u32) {
 
 fn countdown_to_five() {
     let numbers = [1, 2, 3, 4, 5];
+
+    // This will increase the safety of the code and eliminated the bugs
+    // That might result from going beyond the end of the array,
+    // Or not going far enough and missing some items
+    // Safety and conciseness of the for loops
     for number in numbers.iter() {
         println!("{}", number);
     }
