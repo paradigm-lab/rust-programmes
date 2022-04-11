@@ -95,4 +95,47 @@ fn main() {
         "The first index: {}, The second index: {}, The third index: {}",
         five_hundred, six_point_four, one
     );
+
+    // The Array Type
+    // Arrays can't grow (Fixed size)
+    // An array is a single chunk of memory allocated on the stack.
+    // Access element of an array using index.
+    // Type annotation in arrays
+    let _months: [&str; 12] = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+
+    // Creating an array that contains the same values for each element
+    let _bunch_of_threes = [3; 12];
+
+    // Accessing an array using the index
+    let a = [1, 2, 3, 4, 5];
+    let first_a = a[0];
+    let second_b = a[1];
+
+    println!(
+        "The first index: {}, The second index: {}",
+        first_a, second_b
+    );
+
+    // Invalid Array Element Access
+    let a = [1, 2, 3, 4, 5];
+    let index = 5 - 1;
+
+    // The operation will panic at runtime
+    // Rust protects you against this kind of error by immediately exiting instead of allowing the memory access and continuing.
+    let element = a[index];
+
+    println!("The value of element is: {}", element);
 }
