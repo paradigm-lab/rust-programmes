@@ -9,6 +9,9 @@ fn main() {
     // Return values from loops
     let value = count_to_ten();
     println!("The result is: {}", value);
+
+    // Conditional Loops with while
+    countdown_from(5);
 }
 
 fn count_to_ten() -> u32 {
@@ -21,4 +24,13 @@ fn count_to_ten() -> u32 {
     };
 
     result
+}
+
+fn countdown_from(x: u32) {
+    let mut number = x;
+    while number != 0 {
+        println!("{}!", number);
+
+        number -= 1;
+    }
 }
