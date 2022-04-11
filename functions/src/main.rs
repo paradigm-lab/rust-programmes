@@ -13,6 +13,13 @@ fn main() {
     println!("The value of xexpl: {}", xexpl);
 
     println!("Is y greater than five? Answer: {}", greater_than_five(y));
+
+    // divisible_by(25);
+
+    // The arms should return the same type base on the condition
+    let number = -5;
+    let is_positive = if number > 0 { true } else { false };
+    println!("The value of is_positive is: {}", is_positive);
 }
 
 // Function parameter with the type signature
@@ -59,3 +66,14 @@ fn greater_than_five(x: i32) -> bool {
         false
     }
 }
+
+/*
+fn divisible_by(number: u32) {
+    match {
+    number % 4 == 0 => println!("number is divisible by 4"),
+    number % 3 == 0 => println!("number is divisible by 3"),
+    number % 2 == 0 => println!("number is divisible by 2"),
+    _ => println!("number is not divisible by 4, 3, or 2"),
+    }
+}
+*/
