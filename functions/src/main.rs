@@ -11,6 +11,8 @@ fn main() {
     let y: i32 = -5;
     let xexpl = explicity_add_three(y);
     println!("The value of xexpl: {}", xexpl);
+
+    println!("Is y greater than five? Answer: {}", greater_than_five(y));
 }
 
 // Function parameter with the type signature
@@ -47,4 +49,13 @@ fn implicity_return() -> i32 {
 
 fn explicity_add_three(x: i32) -> i32 {
     return x + 3;
+}
+
+fn greater_than_five(x: i32) -> bool {
+    // They are sametimes called "arms"
+    if x > 5 {
+        true
+    } else {
+        false
+    }
 }
