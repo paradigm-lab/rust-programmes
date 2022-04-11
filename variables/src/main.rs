@@ -68,4 +68,31 @@ fn main() {
     let z: char = 'ℤ';
     let heart_eyed_cat: char = '😻';
     println!("Value c: {}, z {}, heart_eyed_cat {}", c, z, heart_eyed_cat);
+
+    // Compound Types
+    // Tuples and Arrays
+
+    // Using destructure pattern matching to the tuple value
+    // Taking a variable tup and bind it with a tuple
+    let tup: (i32, f64, i32) = (500, 6.4, 1);
+    // Using a pattern with let
+    // And if the variable a not declared they will be infared
+    // This is called destructuring, because it breaks the single tuple into three parts.
+    let (xtup, ytup, ztup) = tup;
+
+    println!(
+        "The value of x is: {} The value of y is: {} The value of z is: {}",
+        xtup, ytup, ztup
+    );
+
+    // Using a period(.) with the index of the value we want to access
+    let tup_two: (i32, f64, u8) = (500, 6.4, 1);
+    let five_hundred = tup_two.0;
+    let six_point_four = tup_two.1;
+    let one = tup_two.2;
+
+    println!(
+        "The first index: {}, The second index: {}, The third index: {}",
+        five_hundred, six_point_four, one
+    );
 }
