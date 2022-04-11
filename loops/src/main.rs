@@ -15,6 +15,9 @@ fn main() {
 
     // Iteration over a collection in an array
     countdown_to_five();
+
+    // Count down from five using a range and reverse method
+    countdown_from_five();
 }
 
 fn count_to_ten() -> u32 {
@@ -49,4 +52,13 @@ fn countdown_to_five() {
     for number in numbers.iter() {
         println!("{}", number);
     }
+    println!("LIFTOFF!");
+}
+
+fn countdown_from_five() {
+    // first bound inclusive and last bound exclusive
+    for number in (1..6).rev() {
+        println!("{}", number);
+    }
+    println!("LIFTOFF!");
 }
