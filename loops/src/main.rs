@@ -33,4 +33,5 @@ fn countdown_from(x: u32) {
 
         number -= 1;
     }
+    println!("LIFTOFF!!!");
 }
