@@ -36,4 +36,12 @@ fn main() {
     let c2 = c1.clone();
 
     println!("c1: {c1}, c2: {c2}");
+
+    let tup: (u32, bool) = (117, true);
+    let tup_clone = tup;
+
+    let (tup_x, _) = tup;
+    let (tup_clone_x, _) = tup_clone;
+
+    println!("tup_x = {tup_x}, tup_clone = {tup_clone_x}")
 } // This scope is now over, and s is no longer valid
