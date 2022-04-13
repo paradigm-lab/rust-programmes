@@ -6,6 +6,10 @@ fn main() {
     // We use the destructure pattern because we return a tuple
     let (start, end) = second_word(&s);
     println!("The second word starts at {} and ends at {}", start, end);
+
+    // chunck of word from the String
+    let chunck_word = chunck_first_word(&s);
+    println!("The first word in {} is {}", s, chunck_word);
 }
 
 // Passing a String reference in the first_word f(x)
@@ -50,4 +54,15 @@ fn second_word(s: &String) -> (usize, usize) {
     }
 
     (s.len(), s.len())
+}
+
+fn chunck_first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
 }
