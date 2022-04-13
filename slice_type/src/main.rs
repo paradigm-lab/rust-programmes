@@ -1,5 +1,8 @@
 fn main() {
-    let s = String::from("What's up Rustaceans");
+    let mut s = String::from("What's up Rustaceans");
+
+    s.clear();
+
     let word = first_word(&s);
     println!("The first word in {} is {}", s, word);
 
@@ -10,6 +13,10 @@ fn main() {
     // chunck of word from the String
     let chunck_word = chunck_first_word(&s);
     println!("The first word in {} is {}", s, chunck_word);
+
+    // chunck of second word from the String
+    let word_two = chunck_second_word(&s);
+    println!("The second word s {word_two}");
 }
 
 // Passing a String reference in the first_word f(x)
@@ -65,4 +72,20 @@ fn chunck_first_word(s: &String) -> &str {
         }
     }
     &s[..]
+}
+
+fn chunck_second_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+    let mut first_index = 0;
+    let mut found_first: bool = false;
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' && !found_first {
+            first_index = i + 1;
+            found_first = true;
+        } else if item == b' ' && found_first {
+            return &s[first_index..i];
+        }
+    }
+    ""
 }
