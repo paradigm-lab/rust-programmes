@@ -87,5 +87,11 @@ fn chunck_second_word(s: &str) -> &str {
             return &s[first_index..i];
         }
     }
-    ""
+
+    // Adding the optimization
+    if found_first {
+        &s[first_index..s.len()]
+    } else {
+        ""
+    }
 }
