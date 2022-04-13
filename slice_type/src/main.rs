@@ -1,27 +1,27 @@
 fn main() {
-    let mut s = String::from("What's up Rustaceans");
+    let s = String::from("What's up Rustaceans");
 
-    s.clear();
+    // s.clear();
 
-    let word = first_word(&s);
+    let word = first_word(&s[..]);
     println!("The first word in {} is {}", s, word);
 
     // We use the destructure pattern because we return a tuple
-    let (start, end) = second_word(&s);
+    let (start, end) = second_word(&s[..]);
     println!("The second word starts at {} and ends at {}", start, end);
 
     // chunck of word from the String
-    let chunck_word = chunck_first_word(&s);
+    let chunck_word = chunck_first_word(&s[..]);
     println!("The first word in {} is {}", s, chunck_word);
 
     // chunck of second word from the String
-    let word_two = chunck_second_word(&s);
+    let word_two = chunck_second_word(&s[..]);
     println!("The second word s {word_two}");
 }
 
 // Passing a String reference in the first_word f(x)
 // It's because we don't want the ownership
-fn first_word(s: &String) -> usize {
+fn first_word(s: &str) -> usize {
     // We'll convert our String to an array of bytes using as_bytes method
     let bytes = s.as_bytes();
 
@@ -46,7 +46,7 @@ fn first_word(s: &String) -> usize {
     s.len()
 }
 
-fn second_word(s: &String) -> (usize, usize) {
+fn second_word(s: &str) -> (usize, usize) {
     let bytes = s.as_bytes();
     let mut first_index = 0;
     let mut found_first: bool = false;
@@ -63,7 +63,7 @@ fn second_word(s: &String) -> (usize, usize) {
     (s.len(), s.len())
 }
 
-fn chunck_first_word(s: &String) -> &str {
+fn chunck_first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
 
     for (i, &item) in bytes.iter().enumerate() {
@@ -74,7 +74,7 @@ fn chunck_first_word(s: &String) -> &str {
     &s[..]
 }
 
-fn chunck_second_word(s: &String) -> &str {
+fn chunck_second_word(s: &str) -> &str {
     let bytes = s.as_bytes();
     let mut first_index = 0;
     let mut found_first: bool = false;
