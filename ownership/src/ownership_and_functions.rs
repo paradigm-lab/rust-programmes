@@ -25,8 +25,12 @@ fn main() {
 
   println!("s1: {s1}, s3: {s3}");
 
-  let (s4, len) = calculate_length(s3);
+  let (s4, len) = calculate_length_takes_ownership(s3);
   println!("The length of '{}' is: {}", s4, len);
+
+  let len_of_s4 = calculate_length_with_reference(&s4);
+
+  println!("The length of '{}' is {}", s4, len_of_s4);
 }
 
 fn take_ownership(some_string: String) {
@@ -54,8 +58,12 @@ fn takes_and_gives_back(a_string: String) -> String {
   a_string
 }
 
-fn calculate_length(s: String) -> (String, usize) {
+fn calculate_length_takes_ownership(s: String) -> (String, usize) {
   let length = s.len(); // len() returns the length of a String
 
   (s, length)
+}
+
+fn calculate_length_with_reference(s: &String) -> usize {
+  s.len()
 }
