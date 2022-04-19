@@ -17,6 +17,9 @@ fn main() {
             }
         };
 
+	let celcius: f64 = fahrenheit_to_celcius(fahrenheit);
+	println!("{fahrenheit}F is equal to {celcius}");
+
 }
 
 
