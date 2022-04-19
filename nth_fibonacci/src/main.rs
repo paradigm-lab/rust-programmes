@@ -26,5 +26,10 @@ fn main() {
 
 fn nth_fibonacci(n: u32) -> u32 {
 	// 0 1 1 2 3 5 8 13 ....
-	return (n - 1) + (n - 2);
+	if n == 1 {
+		return 1;
+	} else if n == 0 {
+		return 0;
+	}
+	return nth_fibonacci(n - 1) + nth_fibonacci(n - 2);
 }
