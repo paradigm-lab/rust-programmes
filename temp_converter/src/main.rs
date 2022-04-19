@@ -1,32 +1,84 @@
 use std::io;
 
 fn main() {
+	println!("Please input a temperature...");
 
-	println!("Please input a temperature in Fahrenheit.");
+	let mut temperature = String::new();
 
-	let mut fahrenheit = String::new();
+	io::stdin()
+		.read_line(&mut temperature)
+		.expect("Failed to read line");
 
-        io::stdin()
-            .read_line(&mut fahrenheit)
-            .expect("Failed to read line");
+	let temperature = temperature.trim();
 
-        let fahrenheit: f64 = match fahrenheit.trim().parse() {
-            Ok(num) => num,
-            Err(_) => {
-                panic!("Please input a number.");
-            }
-        };
+	let celsius = get_celsius_temperature_from_string(temperature);
+	let fahrenheit = get_fahrenheit_temperature_from_string(temperature);
 
+	if celsius != "" {
+		let celsius = match celsius.parse() {
+			Ok(num) => num,
+			Err(_) => {
+				panic!("Please enter a valid temperature");
+			}
+		};
+
+		println!(
+			"{} is equal to {}F",
+			temperature,
+			celcius_to_fahrenheit(celsius)
+		);
+	} else if fahrenheit != "" {
+		let fahrenheit = match fahrenheit.parse() {
+			Ok(num) => num,
+			Err(_) => {
+				panic!("Please enter a valid temperature");
+			}
+		};
+
+		println!(
+			"{} is equal to {}C",
+			temperature,
+			fahrenheit_to_celcius(fahrenheit)
+		);
+	} else {
+		panic!("Please enter a valid temperature");
+	}
+
+	println!("You input: {temperature}");
+
+	/*
 	let celcius: f64 = fahrenheit_to_celcius(fahrenheit);
 	println!("{fahrenheit}F is equal to {celcius}");
-
+	*/
 }
 
+fn get_fahrenheit_temperature_from_string(temp_string: &str) -> &str {
+	let temp_string_bytes = temp_string.as_bytes();
+
+	for (i, &item) in temp_string_bytes.iter().enumerate() {
+		// Using the byte literals to check for the character in the bytes
+		if item == b'F' || item == b'f' {
+			return &temp_string[0..i];
+		}
+	}
+	""
+}
+
+fn get_celsius_temperature_from_string(temp_string: &str) -> &str {
+	let temp_string_bytes = temp_string.as_bytes();
+
+	for (i, &item) in temp_string_bytes.iter().enumerate() {
+		// Using the byte literals to check for the character in the bytes
+		if item == b'C' || item == b'c' {
+			return &temp_string[0..i];
+		}
+	}
+	""
+}
 
 fn fahrenheit_to_celcius(f: f64) -> f64 {
 	(f - 32.0) * (5.0 / 9.0)
 }
-
 
 fn celcius_to_fahrenheit(c: f64) -> f64 {
 	(c * 9.0) / 5.0 + 32.0
