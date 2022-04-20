@@ -9,42 +9,21 @@ fn main() {
 		.read_line(&mut temperature)
 		.expect("Failed to read line");
 
-	let temperature = temperature.trim();
+	let (temperature, unit) = get_temperature_from_string(temperature.trim());
 
-	let celsius = get_celsius_temperature_from_string(temperature);
-	let fahrenheit = get_fahrenheit_temperature_from_string(temperature);
-
-	if celsius != "" {
-		let celsius = match celsius.parse() {
-			Ok(num) => num,
-			Err(_) => {
-				panic!("Please enter a valid temperature");
-			}
-		};
-
+	if unit == "celsius" {
 		println!(
-			"{} is equal to {}F",
+			"{}C is equal to {}F",
 			temperature,
-			celcius_to_fahrenheit(celsius)
+			celcius_to_fahrenheit(temperature)
 		);
-	} else if fahrenheit != "" {
-		let fahrenheit = match fahrenheit.parse() {
-			Ok(num) => num,
-			Err(_) => {
-				panic!("Please enter a valid temperature");
-			}
-		};
-
+	} else if unit == "fahrenheit" {
 		println!(
-			"{} is equal to {}C",
+			"{}F is equal to {}C",
 			temperature,
-			fahrenheit_to_celcius(fahrenheit)
+			fahrenheit_to_celcius(temperature)
 		);
-	} else {
-		panic!("Please enter a valid temperature");
 	}
-
-	println!("You input: {temperature}");
 
 	/*
 	let celcius: f64 = fahrenheit_to_celcius(fahrenheit);
@@ -64,7 +43,7 @@ fn get_temperature_from_string(temp_string: &str) -> (f64, &str) {
 			break;
 		} else if item == b'C' || item == b'c' {
 			temperature = &temp_string[0..i];
-			unit = "celcius";
+			unit = "celsius";
 			break;
 		}
 	}
