@@ -15,6 +15,13 @@ impl Rectangle {
 	fn can_hold(&self, other_rect: &Rectangle) -> bool {
 		self.width > other_rect.width && self.height > other_rect.height	
 	}
+	
+	fn square(size: u32) -> Rectangle {
+		Rectangle {
+			width: size,
+			height: size,	
+		}	
+	}
 }
 
 fn main() {
@@ -49,6 +56,12 @@ fn main() {
 
 	println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
 	println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
+
+	/*
+		Associated Functions they are associated with the struct and they are still function not methods, because they don't have an instance of the struct to work with. eg: String::from associated function. Associated function are often used for constructors that will return a new instance of the struct.
+	*/
+	let hip_to_be_square = Rectangle::square(42);
+	println!("Hip_to_be_square: {:#?}", hip_to_be_square);
 }
 
 /*
