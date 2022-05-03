@@ -1,13 +1,25 @@
-fn main() {
-
-	// Refactoring with Tuples
-	let rect1 = (30, 50);
-
-	println!("The area of the rectangle is {} square pixels.", area(rect1));
+struct Rectangle {
+	width: u32,
+	height: u32,
 }
 
-fn area(dimensions: (u32, u32)) -> u32 {
-	dimensions.0 * dimensions.1
+fn main() {
+	let rect1 = Rectangle{
+		width: 30,
+		height: 50,
+	};	
+
+	// Refactoring with Tuples
+	// let rect1 = (30, 50);
+
+
+	// We pass the Reference to the function parameter so that it can't take the ownership of the Rectangle
+	println!("The area of the rectangle is {} square pixels.", area(&rect1));
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+	rectangle.width * rectangle.height
+	// dimensions.0 * dimensions.1
 	// let (width, height) = dimensions;
 	// width * height
 }  
