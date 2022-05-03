@@ -1,28 +1,19 @@
+struct User {
+	// We define the names and types of the pieces of data, which we call fields.
+	username: &str,
+	email: &str,
+	sign_in_count: u64,
+	active: bool,	
+}
+
 fn main() {
-	struct User {
-		// We define the names and types of the pieces of data, which we call fields.
-		username: String,
-		email: String,
-		sign_in_count: u64,
-		active: bool,	
-	}
-	
 	let mut user1 = User {
-		email: String::from("younggods117@twitch.tv"),
-		username: String::from("youvnggod"),
+		email: "younggods117@twitch.tv",
+		username: "youvnggod",
 		active: true,
 		sign_in_count: 1,	
 	};
 
-	fn build_user(email: String, username: String) -> User {
-		User {	
-			email,
-			username,
-			active: true,
-			sign_in_count: 1,	
-		}
-
-	}
 
 	// We can use dot notation to get a specific value from a struct
 	println!("User's email is {}", user1.email);
@@ -42,5 +33,30 @@ fn main() {
 	
 	println!("Inactive User2 Info - active: {}, username: {}", inactive_user2.active, inactive_user2.username);
 }
+
+// Using Tuple Structs without Named Fields to Create Different Types
+fn tuple_structs() {
+	// Rust support struct that looks similar to tuples, called tuple structs.
+	struct Color(i32, i32, i32);
+	struct Point(i32, i32, i32);
+	
+	let black = Color(0, 0, 0);
+	let origin = Point(0,0, 0);
+
+	let (x, y, z) = origin;
+	let (r, g, b) = black;
+}
+
+
+fn build_user(email: String, username: String) -> User {
+	User {	
+		email,
+		username,
+		active: true,
+		sign_in_count: 1,	
+	}
+
+}
+
 
 
