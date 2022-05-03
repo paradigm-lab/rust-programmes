@@ -32,6 +32,15 @@ fn main() {
 	
 	let user2 = build_user(String::from("test@testington.com"), String::from("testTestingsworth"));
 	println!("User2 email: {}, username: {}", user2.email, user2.username);
+
+
+	// Creating Instance From other Instance with Struct Update Syntax
+	let inactive_user2 = User {
+		active: false,
+		..user2
+	};
+	
+	println!("Inactive User2 Info - active: {}, username: {}", inactive_user2.active, inactive_user2.username);
 }
 
 
