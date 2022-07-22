@@ -18,6 +18,14 @@ fn main() {
 
     // Count down from five using a range and reverse method
     countdown_from_five();
+
+    /*
+        Traditional for loop:
+            We could cause the program to panic if the index length is incorrect. (Out of bound exception)
+            It's also slow, Because the compiler adds runtime code to perform the conditional check of every element
+            on every iteration through the loop.
+
+    */
 }
 
 fn count_to_ten() -> u32 {
@@ -57,7 +65,9 @@ fn countdown_to_five() {
 
 fn countdown_from_five() {
     // first bound inclusive and last bound exclusive
-    for number in (1..6).rev() {
+    // Using Range
+    // To override the exclusive we can use = to include the last value
+    for number in (1..=6).rev() {
         println!("{}", number);
     }
     println!("LIFTOFF!");
