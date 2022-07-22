@@ -15,6 +15,8 @@ fn main() {
     println!("Is y greater than five? Answer: {}", greater_than_five(y));
 
     // The arms should return the same type base on the condition
+    // Ternary Operation: The arm should be of the same type 
+    // This helps to the compiler to be aware of the type at compile time rather than at the runtime
     let number = -5;
     let is_positive = if number > 0 { true } else { false };
     println!("The value of is_positive is: {}", is_positive);
@@ -62,6 +64,7 @@ fn explicity_add_three(x: i32) -> i32 {
 
 fn greater_than_five(x: i32) -> bool {
     // They are sametimes called "arms"
+    // if statement use exprestions because NO semi-colon(;) and they also evalute to a value
     if x > 5 {
         true
     } else {
