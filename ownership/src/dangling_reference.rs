@@ -14,11 +14,20 @@ fn dangle() -> &String {
 */
 
 // Works because we actually return the String
-// This works without any problems. Ownershiip is moved out, and nothing is deallocated.
+// This works without any problems. Ownership is moved out, and nothing is deallocated.
 fn no_dangle() -> String {
     let s = String::from("Hello");
     s
 }
+
+/*
+    Not going to work as s falls out of scope and,
+    &s points to nothing
+fn no_dangle() -> &String {
+    let s = String::from("Hello");
+    &s
+}
+*/
 
 /*
     Rules of References
