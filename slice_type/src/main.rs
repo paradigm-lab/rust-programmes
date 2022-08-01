@@ -21,9 +21,9 @@ fn main() {
 
 // Passing a String reference in the first_word f(x)
 // It's because we don't want the ownership
-fn first_word(s: &str) -> usize {
+fn first_word(s: &str) -> usize {   // usize is the type used for the size of an array or String or Index
     // We'll convert our String to an array of bytes using as_bytes method
-    let bytes = s.as_bytes();
+    let bytes = s.as_bytes();   // Returns a byte slice of this String's content(The inverse of this method is from_utf8)
 
     // Created an iterator over the array of bytes using the iter method
     // iter method returns each element in a collection and
