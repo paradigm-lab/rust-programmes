@@ -17,7 +17,10 @@ fn main() {
     // We can use dot notation to get a specific value from a struct
     println!("User's email is {}", user1.email);
     user1.username = String::from("Paradigm");
-    println!("User's email is {}", user1.username);
+    println!(
+        "User {} has signed in {}",
+        user1.username, user1.sign_in_count
+    );
 
     let user2 = build_user(
         String::from("test@testington.com"),
@@ -35,6 +38,8 @@ fn main() {
         "Inactive User2 Info - active: {}, username: {}",
         inactive_user2.active, inactive_user2.username
     );
+
+    tuple_structs();
 }
 
 // Using Tuple Structs without Named Fields to Create Different Types
