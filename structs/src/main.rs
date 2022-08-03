@@ -1,15 +1,15 @@
 struct User {
     // We define the names and types of the pieces of data, which we call fields.
-    username: &str,
-    email: &str,
+    username: String,
+    email: String,
     sign_in_count: u64,
     active: bool,
 }
 
 fn main() {
     let mut user1 = User {
-        email: "younggods117@twitch.tv",
-        username: "youvnggod",
+        email: String::from("younggods117@twitch.tv"),
+        username: String::from("youvnggod"),
         active: true,
         sign_in_count: 1,
     };
@@ -42,11 +42,20 @@ fn tuple_structs() {
     // Rust support struct that looks similar to tuples, called tuple structs.
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
+
     let black = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
 
-    let (x, y, z) = origin;
+    /*
+        Failed to destructure the Tuple Struct:
+
     let (r, g, b) = black;
+    let (x, y, z) = origin;
+
+    */
+
+    println!("{}, {}, {}", origin.0, origin.1, origin.2);
+    println!("{}, {}, {}", black.0, black.1, black.2);
 }
 
 fn build_user(email: String, username: String) -> User {
